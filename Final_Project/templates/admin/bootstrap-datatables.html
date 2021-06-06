@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>StartUI - Premium Bootstrap 4 Admin Dashboard Template</title>
+
+	<link href="../../static/adminResorces/images/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
+	<link href="../../static/adminResorces/images/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
+	<link href="../../static/adminResorces/images/favicon.72x72.png" rel="apple-touch-icon" type="image/png" sizes="72x72">
+	<link href="../../static/adminResorces/images/favicon.57x57.png" rel="apple-touch-icon" type="image/png">
+	<link href="../../static/adminResorces/images/favicon.png" rel="icon" type="image/png">
+	<link href="../../static/adminResorces/images/favicon.ico" rel="shortcut icon">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../static/adminResorces/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../static/adminResorces/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/adminResorces/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/adminResorces/css/main.css">
+</head>
+<body class="with-side-menu-addl-full">
+
+{% include 'admin/header.html' %}
+{% include 'admin/menu.html' %}
+
+	<nav class="side-menu-addl">
+		<ul class="side-menu-addl-list">
+			<li>
+				<a href="bootstrap-datatables.html">
+					<span class="tbl-row">
+						<span class="tbl-cell tbl-cell-caption">Default</span>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="bootstrap-datatables-filter-control.html">
+					<span class="tbl-row">
+						<span class="tbl-cell tbl-cell-caption">Filter Control</span>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="bootstrap-datatables-fixed-columns.html">
+					<span class="tbl-row">
+						<span class="tbl-cell tbl-cell-caption">Fixed Columns</span>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="bootstrap-datatables-mobile.html">
+					<span class="tbl-row">
+						<span class="tbl-cell tbl-cell-caption">Mobile (Responsive)</span>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="bootstrap-datatables-reorder-columns.html">
+					<span class="tbl-row">
+						<span class="tbl-cell tbl-cell-caption">Reorder Columns</span>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="bootstrap-datatables-reorder-rows.html">
+					<span class="tbl-row">
+						<span class="tbl-cell tbl-cell-caption">Reorder Rows</span>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="bootstrap-datatables-resize-columns.html">
+					<span class="tbl-row">
+						<span class="tbl-cell tbl-cell-caption">Resize Columns</span>
+					</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="page-content">
+		<div class="container-fluid">
+			<section class="box-typical">
+				<div id="toolbar">
+					<div class="bootstrap-table-header">Table header</div>
+					<button id="remove" class="btn btn-danger remove" disabled>
+						<i class="font-icon font-icon-close-2"></i> Delete
+					</button>
+				</div>
+				<div class="table-responsive">
+					<table id="table"
+						   class="table table-striped"
+						   data-toolbar="#toolbar"
+						   data-search="true"
+						   data-show-refresh="true"
+						   data-show-toggle="true"
+						   data-show-columns="true"
+						   data-show-export="true"
+						   data-detail-view="true"
+						   data-detail-formatter="detailFormatter"
+						   data-minimum-count-columns="2"
+						   data-show-pagination-switch="true"
+						   data-pagination="true"
+						   data-id-field="id"
+						   data-page-list="[10, 25, 50, 100, ALL]"
+						   data-show-footer="false"
+						   data-response-handler="responseHandler">
+					</table>
+				</div>
+			</section><!--.box-typical-->
+
+		</div><!--.container-fluid-->
+	</div><!--.page-content-->
+
+	<script src="../../static/adminResorces/js/jquery-3.2.1.min.js"></script>
+	<script src="../../static/adminResorces/js/popper.min.js"></script>
+	<script src="../../static/adminResorces/js/tether.min.js"></script>
+	<script src="../../static/adminResorces/js/bootstrap.min.js"></script>
+	<script src="../../static/adminResorces/js/plugins.js"></script>
+
+	<script src="../../static/adminResorces/js/bootstrap-table.js"></script>
+	<script src="../../static/adminResorces/js/bootstrap-table-export.min.js"></script>
+	<script src="../../static/adminResorces/js/tableExport.min.js"></script>
+	<script src="../../static/adminResorces/js/bootstrap-table-init.js"></script>
+
+<script src="../../static/adminResorces/js/app.js"></script>
+</body>
+</html>

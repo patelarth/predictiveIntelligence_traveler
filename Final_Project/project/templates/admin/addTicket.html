@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>StartUI - Premium Bootstrap 4 Admin Dashboard Template</title>
+
+	<link href="../../static/adminResorces/images/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
+	<link href="../../static/adminResorces/images/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
+	<link href="../../static/adminResorces/images/favicon.72x72.png" rel="apple-touch-icon" type="image/png" sizes="72x72">
+	<link href="../../static/adminResorces/images/favicon.57x57.png" rel="apple-touch-icon" type="image/png">
+	<link href="../../static/adminResorces/images/favicon.png" rel="icon" type="image/png">
+	<link href="../../static/adminResorces/images/favicon.ico" rel="shortcut icon">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <link rel="stylesheet" href="../../static/adminResorces/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/adminResorces/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/adminResorces/css/main.css">
+</head>
+<body class="with-side-menu">
+
+{% include 'admin/header.html' %}
+{% include 'admin/menu.html' %}
+
+	<div class="page-content">
+		<div class="container-fluid">
+			<header class="section-header">
+				<div class="tbl">
+					<div class="tbl-row">
+						<div class="tbl-cell">
+							<h3>Manage Ticket</h3>
+							<ol class="breadcrumb breadcrumb-simple">
+								<!--<li><a href="#">StartUI</a></li>
+								<li><a href="#">Forms</a></li>!-->
+								<li class="active">Manage Details</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<section class="card">
+				<div class="card-block">
+					<div class="row">
+						<div class="col-md-6">
+							<form action="/insertTicket" id="form-signin_v1" name="form-signin_v1" method="POST">
+								<fieldset class="form-group">
+									<label class="form-label">Flight Company</label>
+									<select name="companyId"
+                                            placeholder="Select Flight Company"
+										   class="form-control"
+										   data-validation="[NOTEMPTY]">
+                                        {% for record in companyDict %}
+                                            <option value="{{ record.companyId }}">{{ record.companyName }}</option>
+                                        {% endfor %}
+                                    </select>
+								</fieldset>
+                                <fieldset class="form-group">
+									<label class="form-label">Flight No</label>
+									<select name="flightId"
+										   placeholder="Select Flight No"
+										   class="form-control"
+										   data-validation="[NOTEMPTY]">
+                                        {% for record in flightDict %}
+                                            <option value="{{ record.flightId }}">{{ record.flightNo }}</option>
+                                        {% endfor %}
+                                    </select>
+								</fieldset>
+
+								<!--<fieldset class="form-group">
+									<button type="submit" class="btn">Login</button>
+								</fieldset>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form id="form-signin_v2" name="form-signin_v2" method="POST">-->
+								<fieldset class="form-group">
+									<label class="form-label">Ticket Name</label>
+									<input name="ticketName"
+										   type="text"
+										   class="form-control"
+										   data-validation="[NOTEMPTY]">
+								</fieldset>
+                                <fieldset class="form-group">
+									<label class="form-label">Ticket Description</label>
+									<input name="ticketDescription"
+										   type="text"
+										   class="form-control"
+										   data-validation="[NOTEMPTY]">
+								</fieldset>
+								<fieldset class="form-group">
+									<label class="form-label">Ticket Price</label>
+									<input name="ticketPrice"
+										   type="text"
+										   class="form-control"
+										   data-validation="[NOTEMPTY]">
+								</fieldset>
+								<!--<fieldset class="form-group">
+									<label class="form-label">Flight Departure Time</label>
+									<input name="flightDepartureTime"
+										   type="time"
+										   class="form-control"
+										   data-validation="[NOTEMPTY]">
+								</fieldset>
+								<fieldset class="form-group">
+									<label class="form-label">Flight Arrival Destination</label>
+									<select name="arrivalLocationId"
+                                            placeholder="Select Location"
+										   class="form-control"
+										   data-validation="[NOTEMPTY]">
+                                                                            </select>
+								</fieldset>
+								<fieldset class="form-group">
+									<label class="form-label">Flight Departure Destination</label>
+									<select name="departureLocationId"
+                                            placeholder="Select Location"
+										   class="form-control"
+										   data-validation="[NOTEMPTY]">
+                                                                            </select>
+								</fieldset>-->
+								<fieldset class="form-group">
+									<button type="submit" class="btn">Submit</button>
+                                    <button type="reset" class="btn">Cancel</button>
+								</fieldset>
+							</form>
+						</div>
+					</div><!--.row-->
+
+					<!--<div class="row m-t-lg">
+						<div class="col-md-6">
+							<form id="form-signup_v1" name="form-signup_v1" method="POST">
+								<div class="form-group">
+									<label class="form-label" for="signup_v1-username">Username</label>
+									<div class="form-control-wrapper">
+										<input id="signup_v1-username"
+											   class="form-control"
+											   name="signup_v1[username]"
+											   type="text" data-validation="[L>=6, L<=18, MIXED]"
+											   data-validation-message="$ must be between 6 and 18 characters. No special characters allowed."
+											   data-validation-regex="/^((?!admin).)*$/i"
+											   data-validation-regex-message="The word &quot;Admin&quot; is not allowed in the $">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="form-label" for="signup_v1-password">Password</label>
+									<div class="form-control-wrapper">
+										<input id="signup_v1-password"
+											   class="form-control"
+											   name="signup_v1[password]"
+											   type="password" data-validation="[L>=6]"
+											   data-validation-message="$ must be at least 6 characters">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="form-label" for="signup_v1-password-confirm">Confirm Password</label>
+									<div class="form-control-wrapper">
+										<input id="signup_v1-password-confirm"
+											   class="form-control"
+											   name="signup_v1[password-confirm]"
+											   type="password" data-validation="[V==signup_v1[password]]"
+											   data-validation-message="$ does not match the password">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="form-label" for="signup_v1-email">Email</label>
+									<div class="form-control-wrapper">
+										<input id="signup_v1-email"
+											   class="form-control"
+											   name="signup_v1[email]"
+											   type="text"
+											   data-validation="[EMAIL]">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="form-label" for="signup_v1-email-confirm">Confirm Email</label>
+									<div class="form-control-wrapper">
+										<input id="signup_v1-email-confirm"
+											   class="form-control"
+											   name="signup_v1[email-confirm]"
+											   type="text"
+											   data-validation="[V==signup_v1[email]]"
+											   data-validation-message="$ does not match the email">
+									</div>
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn">Sign up!</button>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<form id="form-signup_v2" name="form-signup_v2" method="POST">
+								<div class="form-group">
+									<label class="form-label" for="signup_v2-name">Name</label>
+									<div class="form-control-wrapper">
+										<input id="signup_v2-name"
+											   class="form-control"
+											   name="signup_v2[name]"
+											   type="text"
+											   data-validation="[OPTIONAL, NAME, L>=2, TRIM]">
+									</div>
+								</div>
+								<div class="form-group form-group-radios">
+									<label class="form-label" id="signup_v2-gender">
+										Gender <span class="color-red">*</span>
+									</label>
+									<div class="radio">
+										<input id="signup_v2-gender-male"
+											   name="signup_v2[gender]"
+											   data-validation="[NOTEMPTY]"
+											   data-validation-group="signup_v2-gender"
+											   data-validation-message="You must select a gender"
+											   type="radio"
+											   value="male">
+										<label for="signup_v2-gender-male">Male</label>
+									</div>
+									<div class="radio">
+										<input id="signup_v2-gender-female"
+											   name="signup_v2[gender]"
+											   data-validation-group="signup_v2-gender"
+											   type="radio"
+											   value="female">
+										<label for="signup_v2-gender-female">Female</label>
+									</div>
+									<div class="radio">
+										<input id="signup_v2-gender-other"
+											   name="signup_v2[gender]"
+											   data-validation-group="signup_v2-gender"
+											   type="radio"
+											   value="other">
+										<label for="signup_v2-gender-other">Other</label>
+									</div>
+								</div>
+								<div class="form-group form-group-checkbox">
+									<div class="checkbox">
+										<input id="signup_v2-agree"
+											   name="signup_v2[agree]"
+											   data-validation="[NOTEMPTY]"
+											   data-validation-message="You must agree the terms and conditions"
+											   type="checkbox">
+										<label for="signup_v2-agree">I agree the <a href="#">terms</a> and <a href="#">conditions</a></label>
+									</div>
+								</div>
+								<button type="submit" class="btn">Sign up!</button>
+							</form>
+						</div>
+					</div>-->
+				</div>
+			</section>
+		</div><!--.container-fluid-->
+	</div><!--.page-content-->
+
+	<script src="../../static/adminResorces/js/jquery-3.2.1.min.js"></script>
+	<script src="../../static/adminResorces/js/popper.min.js"></script>
+	<script src="../../static/adminResorces/js/tether.min.js"></script>
+	<script src="../../static/adminResorces/js/bootstrap.min.js"></script>
+	<script src="../../static/adminResorces/js/plugins.js"></script>
+
+	<script src="../../static/adminResorces/js/jquery.validation.min.js"></script>
+	<script>
+		$(function() {
+			/* ==========================================================================
+			 Validation
+			 ========================================================================== */
+
+			$('#form-signin_v1').validate({
+				submit: {
+					settings: {
+						inputContainer: '.form-group'
+					}
+				}
+			});
+
+			$('#form-signin_v2').validate({
+				submit: {
+					settings: {
+						inputContainer: '.form-group',
+						errorListClass: 'form-error-text-block',
+						display: 'block',
+						insertion: 'prepend'
+					}
+				}
+			});
+
+			$('#form-signup_v1').validate({
+				submit: {
+					settings: {
+						inputContainer: '.form-group',
+						errorListClass: 'form-tooltip-error'
+					}
+				}
+			});
+
+			$('#form-signup_v2').validate({
+				submit: {
+					settings: {
+						inputContainer: '.form-group',
+						errorListClass: 'form-tooltip-error'
+					}
+				}
+			});
+		});
+	</script>
+
+<script src="../../static/adminResorces/js/app.js"></script>
+</body>
+</html>

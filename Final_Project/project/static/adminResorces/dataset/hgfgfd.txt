@@ -1,0 +1,3 @@
+Executed SQL Statement : insert into `student`.`student` (`enrollmentno`, `name`) values ('150160116025', 'neel') 
+Error Number : 1062 
+Error Message: Duplicate entry '2147483647' for key 'PRIMARY' 
